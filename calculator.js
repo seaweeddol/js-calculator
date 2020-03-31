@@ -1,12 +1,14 @@
 const exampleAdditionInput = {
-  num1: false,
-  num2: true,
-  operation: '+',
+  num1: 52,
+  num2: '',
+  operation: 'multiply',
 }
 
 const calculator = function(input) {
-  if (!(parseInt(input.num1)) || !(parseInt(input.num2))) {
-    return 'Valid numbers must be provided.';
+  valid_operators = ['add', '+', 'subtract', '-', 'multiply', '*', 'divide', '/'];
+
+  if (!parseInt(input.num1) || !parseInt(input.num2) || !valid_operators.includes(input.operation)) {
+    return 'Valid input must be provided.';
   }
 
   switch (input['operation']) {
@@ -16,7 +18,7 @@ const calculator = function(input) {
     case 'subtract':
     case '-':
       return input['num1'] - input['num2'];
-    case 'multiple':
+    case 'multiply':
     case '*':
       return input['num1'] * input['num2'];
     case 'divide':
