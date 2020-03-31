@@ -1,11 +1,11 @@
 const exampleAdditionInput = {
-  num1: 5,
-  num2: ' ',
+  num1: false,
+  num2: true,
   operation: '+',
 }
 
 const calculator = function(input) {
-  if ((input.num1 === '') || (input.num2 === '') || !(input.num1 >= 0) || !(input.num2 >= 0)) {
+  if (!(parseInt(input.num1)) || !(parseInt(input.num2))) {
     return 'Valid numbers must be provided.';
   }
 
