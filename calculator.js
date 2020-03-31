@@ -1,27 +1,39 @@
 const exampleAdditionInput = {
-  num1: 3,
-  num2: 0,
-  operation: '/',
+  num1: 5,
+  num2: ' ',
+  operation: '+',
 }
 
-const calculator = function(object) {
-  switch (object['operation']) {
+const calculator = function(input) {
+  if ((input.num1 === '') || (input.num2 === '') || !(input.num1 >= 0) || !(input.num2 >= 0)) {
+    return 'Valid numbers must be provided.';
+  }
+
+  switch (input['operation']) {
     case 'add':
     case '+':
-      return object['num1'] + object['num2'];
+      return input['num1'] + input['num2'];
     case 'subtract':
     case '-':
-      return object['num1'] - object['num2'];
+      return input['num1'] - input['num2'];
     case 'multiple':
     case '*':
-      return object['num1'] * object['num2'];
+      return input['num1'] * input['num2'];
     case 'divide':
     case '/':
-      return object['num1'] / object['num2'];
+      return divide(input.num1, input.num2);
     default:
       return 'Invalid operator';
   }
 
+}
+
+const divide = function(num1, num2) {
+  if (num2 === 0) {
+    return 'Cannot divide by 0';
+  } else {
+    return num1 / num2;
+  }
 }
 
 console.log(calculator(exampleAdditionInput));
