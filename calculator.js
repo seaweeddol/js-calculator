@@ -16,23 +16,23 @@ prompt.get(['num1','num2','operation'], calculateUserInput);
 const calculator = function(input) {
   if (!validateInput(input)) return "Please provide valid input";
   
+  num1 = Number(input['num1']);
+  num2 = Number(input['num2']);
+  
   switch (input['operation']) {
     case 'add':
     case '+':
-      return input['num1'] + input['num2'];
+      return num1 + num2;
     case 'subtract':
     case '-':
-      return input['num1'] - input['num2'];
+      return num1 - num2;
     case 'multiply':
     case '*':
-      return input['num1'] * input['num2'];
+      return num1 * num2;
     case 'divide':
     case '/':
-      return divide(input.num1, input.num2);
-    default:
-      return 'Invalid operator';
+      return divide(num1, num2);
   }
-
 }
 
 const validateInput = input => {
