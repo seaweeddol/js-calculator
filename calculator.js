@@ -1,12 +1,27 @@
-const exampleAdditionInput = {
-  num1: 52,
-  num2: '',
-  operation: 'multiply',
-}
+// This line "loads" the prompt package and puts it into a variable we can use called prompt
+// Lines like this (that use require()) typically go on the top of the file
+const prompt = require('prompt');
+
+const calculateUserInput = function(error, promptInput) {
+  console.log(calculator(promptInput));
+
+
+  // Questions to ask and answer:
+  // What is promptInput?
+  // What data type? What does it hold? What does it represent?
+  // How do we read values from it? What syntax?
+  // How can we use it?
+  // Can we call our existing functions now, inside of this function?
+}  
+
+//start the prompt
+prompt.start();
+
+//collect two numbers (num1 and num2) and an operation
+//then call the function `calculator` with the user input
+prompt.get(['num1','num2','operation'], calculateUserInput);
 
 const calculator = function(input) {
-  if (!validateInput(input)) return "Please provide valid input";
-
   switch (input['operation']) {
     case 'add':
     case '+':
@@ -42,5 +57,3 @@ const divide = function(num1, num2) {
     return num1 / num2;
   }
 }
-
-console.log(calculator(exampleAdditionInput));
