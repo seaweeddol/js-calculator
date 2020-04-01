@@ -35,11 +35,14 @@ const calculate = function(input) {
     case 'divide':
     case '/':
       return divide(num1, num2);
+    case 'exponent':
+    case '^':
+      return exponent(num1, num2);
   }
 }
 
 const validateInput = input => {
-  validOperators = ['add', '+', 'subtract', '-', 'multiply', '*', 'divide', '/'];
+  validOperators = ['add', '+', 'subtract', '-', 'multiply', '*', 'divide', '/', 'exponent', '^'];
 
   if (isNaN(parseInt(input.num1)) || isNaN(parseInt(input.num2)) || !validOperators.includes(input.operation)) {
     return false;
@@ -59,10 +62,20 @@ const multiply = (num1, num2) => {
   return `${num1} * ${num2} = ` + (num1 * num2);
 }
 
-const divide = function(num1, num2) {
+const divide = (num1, num2) => {
   if (num2 === 0) {
     return 'Cannot divide by 0';
   } else {
     return num1 / num2;
   }
+}
+
+const exponent = (num1, num2) => {
+  formula = `${num1}`
+  product = num1;
+  for(let i = 1; i < num2; i++) {
+    formula += ` * ${num1}`;
+    product *= num1;
+  }
+  return `${formula} = ` + product;
 }
