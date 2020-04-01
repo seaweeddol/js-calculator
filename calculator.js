@@ -22,7 +22,7 @@ const calculate = function(input) {
   num1 = Number(input['num1']);
   num2 = Number(input['num2']);
   
-  switch (input['operation']) {
+  switch (input['operation'].toLowerCase()) {
     case 'add':
     case '+':
       return add(num1, num2);
@@ -47,7 +47,7 @@ const calculate = function(input) {
 const validateInput = input => {
   validOperators = ['add', '+', 'subtract', '-', 'multiply', '*', 'divide', '/', 'exponent', '^', 'modulo', '%'];
 
-  if (isNaN(parseInt(input.num1)) || isNaN(parseInt(input.num2)) || !validOperators.includes(input.operation)) {
+  if (isNaN(parseInt(input.num1)) || isNaN(parseInt(input.num2)) || !validOperators.includes(input.operation.toLowerCase())) {
     return false;
   }
   return true;
