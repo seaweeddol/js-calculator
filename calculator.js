@@ -4,14 +4,6 @@ const prompt = require('prompt');
 
 const calculateUserInput = function(error, promptInput) {
   console.log(calculator(promptInput));
-
-
-  // Questions to ask and answer:
-  // What is promptInput?
-  // What data type? What does it hold? What does it represent?
-  // How do we read values from it? What syntax?
-  // How can we use it?
-  // Can we call our existing functions now, inside of this function?
 }  
 
 //start the prompt
@@ -22,6 +14,8 @@ prompt.start();
 prompt.get(['num1','num2','operation'], calculateUserInput);
 
 const calculator = function(input) {
+  if (!validateInput(input)) return "Please provide valid input";
+  
   switch (input['operation']) {
     case 'add':
     case '+':
