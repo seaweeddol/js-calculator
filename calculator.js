@@ -2,8 +2,8 @@
 // Lines like this (that use require()) typically go on the top of the file
 const prompt = require('prompt');
 
-const calculateUserInput = function(error, promptInput) {
-  console.log(calculator(promptInput));
+const printResult = function(error, promptInput) {
+  console.log(calculate(promptInput));
 }  
 
 //start the prompt
@@ -11,9 +11,9 @@ prompt.start();
 
 //collect two numbers (num1 and num2) and an operation
 //then call the function `calculator` with the user input
-prompt.get(['num1','num2','operation'], calculateUserInput);
+prompt.get(['num1','num2','operation'], printResult);
 
-const calculator = function(input) {
+const calculate = function(input) {
   if (!validateInput(input)) return "Please provide valid input";
   
   num1 = Number(input['num1']);
