@@ -38,11 +38,14 @@ const calculate = function(input) {
     case 'exponent':
     case '^':
       return exponent(num1, num2);
+    case 'modulo':
+    case '%':
+      return modulo(num1, num2);
   }
 }
 
 const validateInput = input => {
-  validOperators = ['add', '+', 'subtract', '-', 'multiply', '*', 'divide', '/', 'exponent', '^'];
+  validOperators = ['add', '+', 'subtract', '-', 'multiply', '*', 'divide', '/', 'exponent', '^', 'modulo', '%'];
 
   if (isNaN(parseInt(input.num1)) || isNaN(parseInt(input.num2)) || !validOperators.includes(input.operation)) {
     return false;
@@ -78,4 +81,8 @@ const exponent = (num1, num2) => {
     product *= num1;
   }
   return `${formula} = ` + product;
+}
+
+const modulo = (num1, num2) => {
+  return `${num1} % ${num2} = ` + (num1 % num2);
 }
