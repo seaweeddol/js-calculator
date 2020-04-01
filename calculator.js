@@ -38,7 +38,7 @@ const calculator = function(input) {
 const validateInput = input => {
   validOperators = ['add', '+', 'subtract', '-', 'multiply', '*', 'divide', '/'];
 
-  if (!parseInt(input.num1) || !parseInt(input.num2) || !validOperators.includes(input.operation)) {
+  if (isNaN(parseInt(input.num1)) || isNaN(parseInt(input.num2)) || !validOperators.includes(input.operation)) {
     return false;
   }
   return true;
