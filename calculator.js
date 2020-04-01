@@ -3,6 +3,11 @@
 const prompt = require('prompt');
 
 const printResult = function(error, promptInput) {
+  if (!validateInput(promptInput)) {
+    console.log("Please provide valid input");
+    prompt.get(['num1','num2','operation'], printResult);
+  } 
+
   console.log(calculate(promptInput));
 }  
 
@@ -14,8 +19,6 @@ prompt.start();
 prompt.get(['num1','num2','operation'], printResult);
 
 const calculate = function(input) {
-  if (!validateInput(input)) return "Please provide valid input";
-  
   num1 = Number(input['num1']);
   num2 = Number(input['num2']);
   
